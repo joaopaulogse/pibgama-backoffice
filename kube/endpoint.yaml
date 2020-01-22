@@ -1,0 +1,9 @@
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: pibgama-api
+subsets:
+  - addresses:
+    - ip: 10.64.8.216
+    ports:
+      - port: 3000

@@ -1,0 +1,20 @@
+{
+  "group": {
+    "types": {
+      "SMALL": "Pequeno Grupo",
+      "SECTOR": "Setor",
+      "AREA": "Área",
+      "NETWORK": "Rede",
+      "DISTRICT": "Distrito"
+    },
+    "dayOfTheWeek": {
+      "SUNDAY": "Domingo",
+      "MONDAY": "Segunda",
+      "TUESDAY": "Terça",
+      "WEDNESDAY": "Quarta",
+      "THURSDAY": "Quinta",
+      "FRIDAY": "Sexta",
+      "SATURDAY": "Sábado"
+    }
+  }
+}

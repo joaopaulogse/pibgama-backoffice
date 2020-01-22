@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pibgama-backoffice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pibgama-backoffice
+  template:
+    metadata:
+      labels:
+        app: pibgama-backoffice
+    spec:
+      containers:
+        - name: backoffice-web
+          image: gcr.io/pibgama-dev/pibgama-backoffice
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "32Mi"
+              cpu: "100m"
+            limits:
+              memory: "64Mi"
+              cpu: "150m"
+

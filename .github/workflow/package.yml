@@ -1,0 +1,32 @@
+name: Node CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Create env to production
+      run: |
+        cat .env | sed s/VUE_APP_HOST_VALUE/'${{ secrets.VUE_APP_HOST }}'/ >> .env.production
+    
+    - name: Build Docker
+      uses: jerray/publish-docker-action@master
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        registry: docker.pkg.github.com
+        repository: pibgama-backoffice/pibgama-backoffice
+        tags: latest
